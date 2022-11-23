@@ -1,3 +1,7 @@
+### Custom ###
+src/main/resources/application-LOCAL.yml
+src/main/resources/application.yml
+
 HELP.md
 .gradle
 build/
