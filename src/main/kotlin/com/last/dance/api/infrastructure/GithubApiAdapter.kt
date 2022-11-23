@@ -19,7 +19,7 @@ class GithubApiAdapter(
     @Value("\${github.token}")
     private val token: String,
 ) : GithubApiPort {
-    override fun getGithubUserByName(userName: String): GithubUser {
+    override fun getGithubUserByUserName(userName: String): GithubUser {
         val headers = HttpHeaders()
         headers.set("Authorization", token)
         val request = HttpEntity<Map<String, String>>(headers)
@@ -72,7 +72,7 @@ class GithubApiAdapter(
             )
 
             return response.body ?: EMPTY_STRING
-        } catch (ex : Exception) {
+        } catch (ex: Exception) {
             return EMPTY_STRING
         }
     }

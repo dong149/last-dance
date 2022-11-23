@@ -12,10 +12,10 @@ data class GithubRepo(
     val htmlUrl: String,
     val stargazersCount: Long,
     val watchersCount: Long,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
     val topics: List<String>,
     val defaultBranch: String,
     val language: String,
     val forksCount: Long,
+    val createdAt: LocalDateTime,
+    val updatedAt: LocalDateTime,
 )

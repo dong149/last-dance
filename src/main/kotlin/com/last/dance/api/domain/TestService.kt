@@ -7,14 +7,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class TestService(
-    private val githubApiAdapter: GithubApiAdapter
+    private val githubApiAdapter: GithubApiAdapter,
 ) {
-    fun calcScore() {
-
-    }
-
     fun getUser(userName: String): GithubUser {
-         return githubApiAdapter.getGithubUserByName(userName)
+        return githubApiAdapter.getGithubUserByUserName(userName)
     }
 
     fun getRepos(userName: String): List<GithubRepo> {
@@ -22,6 +18,6 @@ class TestService(
     }
 
     fun getReadMeMd(userName: String, repoName: String, defaultBranchName: String): String {
-        return githubApiAdapter.getReadMeMd(userName,repoName,defaultBranchName)
+        return githubApiAdapter.getReadMeMd(userName, repoName, defaultBranchName)
     }
 }
