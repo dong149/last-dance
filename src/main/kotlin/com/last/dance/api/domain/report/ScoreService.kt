@@ -29,6 +29,7 @@ class ScoreService {
         val followerCount: Long,
         val followingCount: Long,
         val profileExist: Boolean,
+        val companyExist: Boolean,
         val commitsInYear: List<Long>,
     )
 
