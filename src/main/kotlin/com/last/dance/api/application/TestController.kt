@@ -2,7 +2,6 @@ package com.last.dance.api.application
 
 import com.last.dance.api.domain.TestService
 import com.last.dance.api.domain.github.GithubRepo
-import com.last.dance.api.domain.github.GithubUser
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,8 +15,13 @@ class TestController(
     @GetMapping("/users/{userName}")
     fun getUserByName(
         @PathVariable userName: String,
-    ): GithubUser {
-        return testService.getUser(userName)
+    ): UserInfo {
+        val githubUser = testService.getUser(userName)
+
+        return UserInfo(
+            company = githubUser.company,
+            avatarUrl = githubUser.avatarUrl
+        )
     }
 
     @GetMapping("/repos/{userName}")
@@ -35,4 +39,9 @@ class TestController(
     ): String {
         return testService.getReadMeMd(userName, repoName, defaultBranchName)
     }
+
+    data class UserInfo(
+        val company: String,
+        val avatarUrl: String,
+    )
 }
